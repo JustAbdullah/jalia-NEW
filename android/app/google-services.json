@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "490720659714",
+    "project_id": "jalai-45565",
+    "storage_bucket": "jalai-45565.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490720659714:android:332f6bee3404e61a759a1b",
+        "android_client_info": {
+          "package_name": "com.example.jalia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC17t9LMwiQqfbGfTn67ck2-Vqi0OR2lwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490720659714:android:f19bd195200111a4759a1b",
+        "android_client_info": {
+          "package_name": "com.example.jalia_dashboard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC17t9LMwiQqfbGfTn67ck2-Vqi0OR2lwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
