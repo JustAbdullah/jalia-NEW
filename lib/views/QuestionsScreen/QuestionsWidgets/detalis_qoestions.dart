@@ -535,12 +535,18 @@ class QoestionsDetails extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           if (homeController.displayIsHavaAccount.value == 0) {
-                            homeController.isUserNotHaveAccount.value = true;
+                            homeController.isNotHaveAnyComment.value = true;
                           } else {
-                            homeController.AddComments(
-                                homeController.Thecomment.toString(),
-                                homeController.questions.community_questions_id
-                                    .toString());
+                            if (homeController.Thecomment == "a") {
+                              homeController.isNotHaveAnyComment.value = true;
+                            } else {
+                              homeController.isNotHaveDataintoCv.value = false;
+                              homeController.AddComments(
+                                  homeController.Thecomment.toString(),
+                                  homeController
+                                      .questions.community_questions_id
+                                      .toString());
+                            }
                           }
                         },
                         child: ContainerCustom(
@@ -559,6 +565,22 @@ class QoestionsDetails extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  GetX<HomeController>(
+                      builder: (controller) => Visibility(
+                            visible: controller.isNotHaveAnyComment.value,
+                            child: Text(
+                              "خانة التعليق فارغة! لاتستطيع إضافة التعليق قم بالإضافة اولاً",
+                              style: TextStyle(
+                                color: AppColors.redColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 18,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )),
                 ])),
           ),
           GetX<HomeController>(

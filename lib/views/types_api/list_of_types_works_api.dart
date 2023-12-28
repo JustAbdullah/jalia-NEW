@@ -50,6 +50,9 @@ class ListOfTypesWorksApi extends StatelessWidget {
                               homeController.idOfTypeWork.value = int.parse(
                                   snapshot.data['data'][i]['id_type_work']
                                       .toString());
+                              homeController.typeCom = snapshot.data['data'][i]
+                                      ['id_type_work']
+                                  .toString();
                               homeController.showtheTypesOfWorks.value = false;
                             },
                             child: Container(

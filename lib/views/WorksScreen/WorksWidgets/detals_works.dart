@@ -112,26 +112,28 @@ class DetalesWorks extends StatelessWidget {
                 child: Center(
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 17.h),
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.h),
                     child: Row(
                       children: [
-                        TextCustom(
-                            Theheight: 0.02.h,
-                            theText: "الشركة المقدمة للعمل:",
-                            fontSizeWidth: 15,
-                            fontFamily: AppTextStyles.Almarai,
-                            fontColor: AppColors.balckColorTypeThree),
+                        Text(
+                          "الشركة المقدمة للعمل:",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: AppTextStyles.Almarai,
+                              color: AppColors.balckColorTypeThree),
+                        ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        TextCustom(
-                            Theheight: 0.02.h,
-                            theText:
-                                homeController.works.work_copmany.toString(),
-                            fontSizeWidth: 15,
-                            fontFamily: AppTextStyles.Almarai,
-                            fontWeight: FontWeight.bold,
-                            fontColor: AppColors.whiteColor),
+                        Text(
+                          homeController.works.work_copmany.toString(),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: AppTextStyles.Almarai,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.whiteColor),
+                          textAlign: TextAlign.center,
+                        ),
                       ],
                     ),
                   ),
@@ -298,26 +300,29 @@ class DetalesWorks extends StatelessWidget {
                 child: Center(
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 17.h),
-                    child: Row(
-                      children: [
-                        TextCustom(
-                            Theheight: 0.02.h,
-                            theText: "تاريخ إضافة فرصة العمل:",
-                            fontSizeWidth: 15,
-                            fontFamily: AppTextStyles.Almarai,
-                            fontColor: AppColors.balckColorTypeThree),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        TextCustom(
-                            Theheight: 0.02.h,
-                            theText: homeController.works.work_date.toString(),
-                            fontSizeWidth: 15,
-                            fontFamily: AppTextStyles.Almarai,
-                            fontWeight: FontWeight.bold,
-                            fontColor: AppColors.whiteColor),
-                      ],
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.h),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Text("تاريخ إضافة فرصة العمل:",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  fontFamily: AppTextStyles.Almarai,
+                                  color: AppColors.balckColorTypeThree)),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            homeController.works.work_date.toString(),
+                            style: TextStyle(
+                                fontSize: 15,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.whiteColor),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -335,26 +340,27 @@ class DetalesWorks extends StatelessWidget {
                 child: Center(
                   child: Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 18.h),
+                        EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.h),
                     child: Row(
                       children: [
-                        TextCustom(
-                            Theheight: 0.02.h,
-                            theText: "رقم التواصل مع الشركة:",
-                            fontSizeWidth: 15,
-                            fontFamily: AppTextStyles.Almarai,
-                            fontColor: AppColors.balckColorTypeThree),
+                        Text(
+                          "رقم التواصل مع الشركة:",
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: AppTextStyles.Almarai,
+                              color: AppColors.balckColorTypeThree),
+                        ),
                         SizedBox(
                           width: 10.w,
                         ),
-                        TextCustom(
-                            Theheight: 0.02.h,
-                            theText: homeController.works.work_number_phone
-                                .toString(),
-                            fontSizeWidth: 15,
-                            fontFamily: AppTextStyles.Cairo,
-                            fontWeight: FontWeight.bold,
-                            fontColor: AppColors.yellowColor),
+                        Text(
+                          homeController.works.work_number_phone.toString(),
+                          style: TextStyle(
+                              fontSize: 15,
+                              fontFamily: AppTextStyles.Cairo,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.yellowColor),
+                        ),
                       ],
                     ),
                   ),

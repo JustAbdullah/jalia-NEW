@@ -403,14 +403,23 @@ class _AddWorksState extends State<AddWorks> {
                     children: [
                       InkWell(
                         onTap: () {
-                          homeController.AddWork(
-                              homeController.nameWork.toString(),
-                              homeController.descriptionWo.toString(),
-                              homeController.filename.toString(),
-                              homeController.WorkCom.toString(),
-                              homeController.idOfTypeWork.value.toString(),
-                              homeController.placeCom.toString(),
-                              homeController.Worknumber.toString());
+                          if (homeController.nameWork == "a" &&
+                              homeController.descriptionWo == "a" &&
+                              homeController.Worknumber == "a" &&
+                              homeController.WorkCom == "a" &&
+                              homeController.addImageWork.value == false) {
+                            homeController.isNotAddDataWork.value = true;
+                          } else {
+                            homeController.isNotAddDataWork.value = false;
+                            homeController.AddWork(
+                                homeController.nameWork.toString(),
+                                homeController.descriptionWo.toString(),
+                                homeController.filename.toString(),
+                                homeController.WorkCom.toString(),
+                                homeController.typeCom.toString(),
+                                homeController.placeCom.toString(),
+                                homeController.Worknumber.toString());
+                          }
                         },
                         child: ContainerCustomApi(
                           colorContainer: AppColors.yellowColor,
@@ -430,7 +439,23 @@ class _AddWorksState extends State<AddWorks> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  GetX<HomeController>(
+                      builder: (controller) => Visibility(
+                            visible: controller.isNotAddDataWork.value,
+                            child: Text(
+                              "عليك ملاْ جميع البيانات المطلوبة من أجل إضافة فرصة العمل",
+                              style: TextStyle(
+                                color: AppColors.redColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 18,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )),
                 ]),
               ),
             ),

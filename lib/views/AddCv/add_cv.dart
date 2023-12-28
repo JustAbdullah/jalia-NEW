@@ -157,6 +157,48 @@ class _AddCVState extends State<AddCV> {
                   SizedBox(
                     height: 17.h,
                   ),
+                  Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.w),
+                      child: Material(
+                        elevation: 4,
+                        shadowColor: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 12),
+                          child: TextFormField(
+                            onChanged: (value) {
+                              homeController.phoneNumberOFCv = value;
+                            },
+                            onSaved: (newValue) {
+                              homeController.phoneNumberOFCv =
+                                  newValue.toString();
+                            },
+                            controller: homeController.phoneNumberCvController,
+                            keyboardType: TextInputType.text,
+                            decoration: InputDecoration(
+                                hintText: 'رقم التواصل الخاص بك',
+                                isDense: true, // important line
+                                contentPadding: EdgeInsets.fromLTRB(10, 10, 10,
+                                    0), // control your hints text size
+                                hintStyle: TextStyle(
+                                    fontFamily: AppTextStyles.Almarai,
+                                    letterSpacing: 2,
+                                    color: AppColors.theAppColorBlue,
+                                    fontWeight: FontWeight.bold),
+                                fillColor: Colors.white30,
+                                filled: true,
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(30),
+                                    borderSide: BorderSide.none)),
+                            maxLines: 2,
+                            minLines: 2,
+                          ),
+                        ),
+                      )),
+                  SizedBox(
+                    height: 17.h,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -309,11 +351,20 @@ class _AddCVState extends State<AddCV> {
                     children: [
                       InkWell(
                         onTap: () {
-                          homeController.AddCv(
-                              homeController.nameCv.toString(),
-                              homeController.descriptionCv.toString(),
-                              homeController.filename.toString(),
-                              homeController.isPublicCv.value.toString());
+                          if (homeController.nameCv == "a" &&
+                              homeController.descriptionCv == "a" &&
+                              homeController.phoneNumberOFCv == "a" &&
+                              homeController.addImageWork.value == false) {
+                            homeController.isNotHaveDataintoCv.value = true;
+                          } else {
+                            homeController.isNotHaveDataintoCv.value = false;
+                            homeController.AddCv(
+                                homeController.nameCv.toString(),
+                                homeController.descriptionCv.toString(),
+                                homeController.filename.toString(),
+                                homeController.isPublicCv.value.toString(),
+                                homeController.phoneNumberOFCv.toString());
+                          }
                         },
                         child: ContainerCustomApi(
                           colorContainer: AppColors.yellowColor,
@@ -333,7 +384,23 @@ class _AddCVState extends State<AddCV> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  GetX<HomeController>(
+                      builder: (controller) => Visibility(
+                            visible: controller.isNotHaveDataintoCv.value,
+                            child: Text(
+                              "عليك ملاْ جميع البيانات المطلوبة من أجل إضافةالسيرة الذاتية",
+                              style: TextStyle(
+                                color: AppColors.redColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 18,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )),
                 ]),
               ),
             ),

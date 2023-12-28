@@ -132,8 +132,13 @@ class _AddQuesState extends State<AddQues> {
                     children: [
                       InkWell(
                         onTap: () {
-                          homeController.AddQu(
-                              homeController.TheQues.toString());
+                          if (homeController.TheQues == "a") {
+                            homeController.isNotDataHaveInQu.value = true;
+                          } else {
+                            homeController.isNotDataHaveInQu.value = false;
+                            homeController.AddQu(
+                                homeController.TheQues.toString());
+                          }
                         },
                         child: ContainerCustomApi(
                           colorContainer: AppColors.yellowColor,
@@ -153,7 +158,23 @@ class _AddQuesState extends State<AddQues> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  GetX<HomeController>(
+                      builder: (controller) => Visibility(
+                            visible: controller.isNotDataHaveInQu.value,
+                            child: Text(
+                              "عليك ملاْ جميع البيانات المطلوبة من أجل إضافة السؤال ",
+                              style: TextStyle(
+                                color: AppColors.redColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 18,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )),
                 ]),
               ),
             ),

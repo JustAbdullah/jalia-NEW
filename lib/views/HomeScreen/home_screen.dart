@@ -427,53 +427,59 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                   ]),
                                 ),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Container(
-                                      width: 100.w,
-                                      height: 150.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.black45),
-                                    )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Container(
-                                      width: 100.w,
-                                      height: 150.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.black45),
-                                    )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 5.w),
-                                        child: Align(
-                                          alignment: Alignment.center,
-                                          child: Padding(
-                                            padding: EdgeInsets.only(top: 80.h),
-                                            child: Text(
-                                              "قم بإنشاء حساب اولاً",
-                                              style: TextStyle(
-                                                  color: AppColors.whiteColor,
-                                                  fontFamily:
-                                                      AppTextStyles.Almarai,
-                                                  fontSize: 15.sp,
-                                                  height: 1.5.h,
-                                                  fontWeight: FontWeight.bold),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Container(
+                                          width: 100.w,
+                                          height: 150.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.black45),
+                                        ))),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Container(
+                                          width: 100.w,
+                                          height: 150.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.black45),
+                                        ))),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Padding(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 5.w),
+                                          child: Align(
+                                              alignment: Alignment.center,
+                                              child: Padding(
+                                                padding:
+                                                    EdgeInsets.only(top: 80.h),
+                                                child: Text(
+                                                  "قم بإنشاء حساب اولاً",
+                                                  style: TextStyle(
+                                                      color:
+                                                          AppColors.whiteColor,
+                                                      fontFamily:
+                                                          AppTextStyles.Almarai,
+                                                      fontSize: 15.sp,
+                                                      height: 1.5.h,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              )),
                                         )))
                               ],
                             )),
@@ -523,55 +529,60 @@ class HomeScreen extends StatelessWidget {
                                         )
                                       ],
                                     )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Container(
-                                      width: 100.w,
-                                      height: 150.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.black45),
-                                    )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Container(
-                                      width: 100.w,
-                                      height: 150.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.black45),
-                                    )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 5.w),
-                                      child: Align(
-                                        alignment: Alignment.center,
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Container(
+                                          width: 100.w,
+                                          height: 150.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.black45),
+                                        ))),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Container(
+                                          width: 100.w,
+                                          height: 150.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.black45),
+                                        ))),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
                                         child: Padding(
-                                          padding: EdgeInsets.only(top: 80.h),
-                                          child: Text(
-                                            "قم بإنشاء حساب اولاً",
-                                            style: TextStyle(
-                                                color: AppColors.whiteColor,
-                                                fontFamily:
-                                                    AppTextStyles.Almarai,
-                                                fontSize: 15.sp,
-                                                height: 1.5.h,
-                                                fontWeight: FontWeight.bold),
-                                            textAlign: TextAlign.center,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 5.w),
+                                          child: Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(top: 80.h),
+                                              child: Text(
+                                                "قم بإنشاء حساب اولاً",
+                                                style: TextStyle(
+                                                    color: AppColors.whiteColor,
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    fontSize: 15.sp,
+                                                    height: 1.5.h,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
-                                    ))
+                                        )))
                               ],
                             ))
                       ],
@@ -627,55 +638,60 @@ class HomeScreen extends StatelessWidget {
                                         )
                                       ],
                                     )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Container(
-                                      width: 100.w,
-                                      height: 150.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.black45),
-                                    )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Container(
-                                      width: 100.w,
-                                      height: 150.h,
-                                      decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                          color: Colors.black45),
-                                    )),
-                                Visibility(
-                                    visible: homeController
-                                            .displayIsHavaAccount.value ==
-                                        0,
-                                    child: Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 5.w),
-                                      child: Align(
-                                        alignment: Alignment.center,
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Container(
+                                          width: 100.w,
+                                          height: 150.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.black45),
+                                        ))),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
+                                        child: Container(
+                                          width: 100.w,
+                                          height: 150.h,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: Colors.black45),
+                                        ))),
+                                GetX<HomeController>(
+                                    builder: (controller) => Visibility(
+                                        visible: controller
+                                                .displayIsHavaAccount.value ==
+                                            0,
                                         child: Padding(
-                                          padding: EdgeInsets.only(top: 80.h),
-                                          child: Text(
-                                            "قم بإنشاء حساب اولاً",
-                                            style: TextStyle(
-                                                color: AppColors.whiteColor,
-                                                fontFamily:
-                                                    AppTextStyles.Almarai,
-                                                fontSize: 15.sp,
-                                                height: 1.5.h,
-                                                fontWeight: FontWeight.bold),
-                                            textAlign: TextAlign.center,
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 5.w),
+                                          child: Align(
+                                            alignment: Alignment.center,
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(top: 80.h),
+                                              child: Text(
+                                                "قم بإنشاء حساب اولاً",
+                                                style: TextStyle(
+                                                    color: AppColors.whiteColor,
+                                                    fontFamily:
+                                                        AppTextStyles.Almarai,
+                                                    fontSize: 15.sp,
+                                                    height: 1.5.h,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                                textAlign: TextAlign.center,
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
-                                    ))
+                                        )))
                               ],
                             ))
                       ],

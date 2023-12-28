@@ -62,7 +62,6 @@ class HomeController extends GetxController {
   RxString theTypeWork = "من غير تصنيف".obs;
   RxString thePlaceWork = "Adalar".obs;
   RxInt idOfPlaceWork = 0.obs;
-
   RxInt idOfTypeWork = 0.obs;
 
   RxBool noData = false.obs;
@@ -511,9 +510,9 @@ class HomeController extends GetxController {
   //////////////ADD Compeny/////////////////
 
   GlobalKey<FormState> formAddComeny = GlobalKey<FormState>();
-  String nameCom = "";
-  String descriptionCom = "";
-  String numberCom = "";
+  String nameCom = "a";
+  String descriptionCom = "a";
+  String numberCom = "a";
 
   String imageCom = "";
   String typeCom = "1";
@@ -526,6 +525,8 @@ class HomeController extends GetxController {
   RxBool isAddCom = false.obs;
   RxBool isAddErrorCom = false.obs;
   RxBool addImageBuss = false.obs;
+  RxBool isNotAddAnyBussData = false.obs;
+
   var filename;
 
   RxBool isChooesImage = false.obs;
@@ -569,9 +570,9 @@ class HomeController extends GetxController {
     thePlaceList.value = "غير مُدخل";
     theTypeOfWork.value = "غير مُدخل";
     theTypeOfBus.value = "غير مُدخل";
-    nameCom = "";
-    descriptionCom = "";
-    numberCom = "";
+    nameCom = "a";
+    descriptionCom = "a";
+    numberCom = "a";
     imageCom = "";
     typeCom = "1";
     placeCom = "1";
@@ -583,20 +584,24 @@ class HomeController extends GetxController {
     addImageBuss.value = false;
     isAddErrorCom.value = false;
     isChooesImage.value = false;
+    addImageBuss.value = false;
+    isChooesImage.value = false;
     filename = null;
   }
 
   //////////////ADD Works/////////////////
 
   GlobalKey<FormState> formAddWorks = GlobalKey<FormState>();
-  String nameWork = "";
-  String descriptionWo = "";
-  String Worknumber = "";
-  String WorkCom = "";
+  String nameWork = "a";
+  String descriptionWo = "a";
+  String Worknumber = "a";
+  String WorkCom = "a";
   String imageWork = "";
   String typeWork = "1";
   String placeWork = "1";
-
+////////////
+  RxBool addImageWork = false.obs;
+  RxBool isNotAddDataWork = false.obs;
   TextEditingController nameWorkController = TextEditingController();
   TextEditingController descriptionWorkController = TextEditingController();
   TextEditingController numberPhoneWorkController = TextEditingController();
@@ -605,8 +610,6 @@ class HomeController extends GetxController {
   RxBool isLoadingAddWork = false.obs;
   RxBool isAddWork = false.obs;
   RxBool isAddErrorWork = false.obs;
-
-  RxBool addImageWork = false.obs;
 
   AddWork(String nameWork, String descriptionWork, String image, String workCom,
       String type, String place, String number_phone) async {
@@ -640,10 +643,10 @@ class HomeController extends GetxController {
     thePlaceList.value = "غير مُدخل";
     theTypeOfWork.value = "غير مُدخل";
     theTypeOfBus.value = "غير مُدخل";
-    nameWork = "";
-    descriptionWo = "";
-    Worknumber = "";
-    WorkCom = "";
+    nameWork = "a";
+    descriptionWo = "a";
+    Worknumber = "a";
+    WorkCom = "a";
     imageWork = "";
     typeWork = "1";
     placeWork = "1";
@@ -660,24 +663,31 @@ class HomeController extends GetxController {
 
     addImageWork.value = false;
     filename = null;
+    addImageWork.value = false;
+    isChooesImage.value = false;
   }
 
   ///////////////////////////////////ADD Cv/////////////////
 
   GlobalKey<FormState> formAddCv = GlobalKey<FormState>();
-  String nameCv = "";
-  String descriptionCv = "";
+  String nameCv = "a";
+  String descriptionCv = "a";
   String imageCv = "";
+  String phoneNumberOFCv = "a";
   RxString isPublicCv = "0".obs;
   TextEditingController nameCvController = TextEditingController();
   TextEditingController descriptionCvController = TextEditingController();
+  TextEditingController phoneNumberCvController = TextEditingController();
+
   RxBool isLoadingAddCv = false.obs;
   RxBool isAddCv = false.obs;
   RxBool isAddErrorCv = false.obs;
   RxBool addImageCv = false.obs;
 
-  AddCv(String namecv, String descriptioncv, String image,
-      String ispublic) async {
+  RxBool isNotHaveDataintoCv = false.obs;
+
+  AddCv(String namecv, String descriptioncv, String image, String ispublic,
+      String phoneNumber) async {
     var formKeyData = formAddCv.currentState;
     if (formKeyData!.validate()) {
       isLoadingAddCv.value = true;
@@ -686,6 +696,7 @@ class HomeController extends GetxController {
         'about_cv': descriptioncv.toString(),
         'cv_image': "https://larra.xyz/images_nara/$image",
         'is_cv_public': ispublic.toString(),
+        'user_phone_cv': phoneNumber.toString(),
         'cv_add_by': displayUserId.value.toString(),
       });
 ///////
@@ -702,20 +713,25 @@ class HomeController extends GetxController {
   }
 
   cleanTheDataCv() {
-    nameCv = "";
-    descriptionCv = "";
-    imageCv = "";
+    nameCv = "a";
+    descriptionCv = "a";
+    imageCv = "a";
+    phoneNumberOFCv = "a";
     isPublicCv.value = "0";
     nameCvController.clear();
     descriptionCvController.clear();
+    phoneNumberCvController.clear();
     isLoadingAddCv.value = false;
     isAddCv.value = false;
     isAddErrorCv.value = false;
     addImageCv.value = false;
     addImageWork.value = false;
+    addImageWork.value = false;
+    isChooesImage.value = false;
   } ///////////////////////////////////ADD Comments/////////////////
 
-  String Thecomment = "";
+  String Thecomment = "a";
+  RxBool isNotHaveAnyComment = false.obs;
 
   TextEditingController commentsController = TextEditingController();
   RxBool isAddCo = false.obs;
@@ -742,7 +758,7 @@ class HomeController extends GetxController {
   }
 
   cleanTheCommetns() {
-    Thecomment = "";
+    Thecomment = "a";
     isLoadingAddCv.value = false;
 
     commentsController.clear();
@@ -754,7 +770,8 @@ class HomeController extends GetxController {
 
   ///////////////////////////////////ADD Ques/////////////////
 
-  String TheQues = "";
+  String TheQues = "a";
+  RxBool isNotDataHaveInQu = false.obs;
 
   TextEditingController quesController = TextEditingController();
   RxBool isAddQu = false.obs;
@@ -781,7 +798,7 @@ class HomeController extends GetxController {
   }
 
   cleanTheQu() {
-    TheQues = "";
+    TheQues = "a";
     quesController.clear();
     isAddQu.value = false;
     isAddErrorQu.value = false;

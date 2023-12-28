@@ -360,13 +360,21 @@ class _AddBusinessState extends State<AddBusiness> {
                     children: [
                       InkWell(
                         onTap: () {
-                          homeController.AddCompeny(
-                              homeController.nameCom.toString(),
-                              homeController.descriptionCom.toString(),
-                              homeController.filename.toString(),
-                              homeController.typeCom.toString(),
-                              homeController.placeCom.toString(),
-                              homeController.numberCom.toString());
+                          if (homeController.nameCom == "a" &&
+                              homeController.descriptionCom == "a" &&
+                              homeController.numberCom == "a" &&
+                              homeController.addImageBuss.value == false) {
+                            homeController.isNotAddAnyBussData.value = true;
+                          } else {
+                            homeController.isNotAddAnyBussData.value = false;
+                            homeController.AddCompeny(
+                                homeController.nameCom.toString(),
+                                homeController.descriptionCom.toString(),
+                                homeController.filename.toString(),
+                                homeController.typeCom.toString(),
+                                homeController.placeCom.toString(),
+                                homeController.numberCom.toString());
+                          }
                         },
                         child: ContainerCustomApi(
                           colorContainer: AppColors.yellowColor,
@@ -386,7 +394,23 @@ class _AddBusinessState extends State<AddBusiness> {
                         ),
                       ),
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    height: 4.h,
+                  ),
+                  GetX<HomeController>(
+                      builder: (controller) => Visibility(
+                            visible: controller.isNotAddAnyBussData.value,
+                            child: Text(
+                              "عليك ملاْ جميع البيانات المطلوبة من أجل إضافة دليل العمل ",
+                              style: TextStyle(
+                                color: AppColors.redColor,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontSize: 18,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          )),
                 ]),
               ),
             ),
