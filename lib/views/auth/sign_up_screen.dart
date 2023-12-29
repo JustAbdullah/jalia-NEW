@@ -134,7 +134,7 @@ class SignUp extends StatelessWidget {
                     iconColor: AppColors.theAppColorBlue,
                     borderSideColor: AppColors.whiteColor,
                     fontColor: AppColors.balckColorTypeThree,
-                    obscureText: true,
+                    obscureText: false,
                     keyboardType: TextInputType.phone,
                     autofillHints: [AutofillHints.name],
                     onChanged: (value) {

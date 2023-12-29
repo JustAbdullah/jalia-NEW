@@ -12,8 +12,10 @@ import 'package:jalia/views/WorksScreen/WorksWidgets/top_header_works_screen.dar
 import '../../core/constant/appcolors.dart';
 import '../../customWidgets/custom_container_api.dart';
 import '../../customWidgets/custome_textfiled.dart';
+import '../../customWidgets/search_text_filed.dart';
 import 'WorksWidgets/list_of_types_works.dart';
 import 'WorksWidgets/list_of_works_fluter.dart';
+import 'WorksWidgets/list_of_works_search_with_name.dart';
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
@@ -41,25 +43,45 @@ class WorksScreen extends StatelessWidget {
                       height: 25.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 30.w),
-                      child: TextFormFiledCustom(
-                        labelData: "ابحث عن وظيفة",
-                        hintData: "قم رجاءًا بإدخال اسم الوظيفة",
-                        iconData: Icons.search,
-                        controllerData: homeController.nameSearchController,
-                        value: (p0) {},
-                        fillColor: AppColors.whiteColor,
-                        hintColor: AppColors.theAppColorBlue,
-                        iconColor: AppColors.balckColorTypeThree,
-                        borderSideColor: AppColors.whiteColor,
-                        fontColor: AppColors.balckColorTypeThree,
-                        obscureText: false,
-                        keyboardType: TextInputType.text,
-                        autofillHints: [AutofillHints.name],
-                        onChanged: (p0) {},
-                        validator: (p0) {},
-                      ),
-                    ),
+                        padding: EdgeInsets.symmetric(horizontal: 30.w),
+                        child: GetX<HomeController>(
+                          builder: (controller) => TextFormFiledCustomSearch(
+                            labelData: "ابحث عن وظيفة",
+                            hintData: "قم رجاءًا بإدخال اسم الوظيفة",
+                            iconData:
+                                controller.showTheResultWorkNameSearch.value ==
+                                        true
+                                    ? Icons.close
+                                    : Icons.search,
+                            controllerData: homeController.TheNameSearchWork,
+                            value: (value) {
+                              homeController.theNameSearchingWork =
+                                  value.toString();
+                              return value;
+                            },
+                            fillColor: AppColors.whiteColor,
+                            hintColor: AppColors.theAppColorBlue,
+                            iconColor:
+                                controller.isSearchingNameWork.value == true
+                                    ? AppColors.redColor
+                                    : AppColors.balckColorTypeThree,
+                            borderSideColor: AppColors.whiteColor,
+                            onTap: () {
+                              controller.searchNowNameWork();
+                            },
+                            fontColor: AppColors.balckColorTypeThree,
+                            obscureText: false,
+                            keyboardType: TextInputType.text,
+                            autofillHints: [AutofillHints.name],
+                            onChanged: (value) {
+                              controller.isSearchingNameWork.value = true;
+                              homeController.theNameSearchingWork =
+                                  value.toString();
+                              return value;
+                            },
+                            validator: (p0) {},
+                          ),
+                        )),
                     SizedBox(
                       height: 15.h,
                     ),
@@ -71,7 +93,7 @@ class WorksScreen extends StatelessWidget {
                             builder: (controller) => Row(
                               children: [
                                 PaddingCustom(
-                                  theTop: 10,
+                                  theTop: 0,
                                   child: TextCustom(
                                       theText: "المنطقة:",
                                       fontSizeWidth: 15,
@@ -110,7 +132,7 @@ class WorksScreen extends StatelessWidget {
                                   width: 5.w,
                                 ),
                                 PaddingCustom(
-                                    theTop: 10,
+                                    theTop: 0,
                                     child: InkWell(
                                       onTap: () {
                                         homeController
@@ -202,10 +224,16 @@ class WorksScreen extends StatelessWidget {
                             height: 450.h,
                             child: GetX<HomeController>(
                                 builder: (thecontrollerFluter) =>
-                                    thecontrollerFluter.isFluterNow.value ==
+                                    thecontrollerFluter
+                                                .showTheResultWorkNameSearch
+                                                .value ==
                                             true
-                                        ? ListOfWorksFluter()
-                                        : ListOfWorks())))
+                                        ? ListOfWorksSearchingByName()
+                                        : thecontrollerFluter
+                                                    .isFluterNow.value ==
+                                                true
+                                            ? ListOfWorksFluter()
+                                            : ListOfWorks())))
                   ]),
                 ),
               ),

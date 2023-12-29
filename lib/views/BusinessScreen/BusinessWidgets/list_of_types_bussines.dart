@@ -36,23 +36,30 @@ class ListOfBusinessTypes extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: InkWell(
                             onTap: () {
+                              if (homeController.isFluterTypeComp.value ==
+                                  false) {
+                                homeController.countTheFluterComp.value =
+                                    homeController.countTheFluterComp.value + 1;
+                              } else {}
+                              homeController.theTypeComp.value = snapshot
+                                  .data['data'][i]['name_type_id_type_business']
+                                  .toString();
+                              homeController.isFluterTypeComp.value = true;
+
+                              homeController.idOfTypeComp.value = int.parse(
+                                  snapshot.data['data'][i]['id_type_business']
+                                      .toString());
+                              homeController.typeCom = snapshot.data['data'][i]
+                                      ['id_type_business']
+                                  .toString();
+                              homeController.showtheTypesOfComp.value = false;
+
                               homeController.typeCom =
                                   snapshot.data['data'][i]['id_type_business'];
-                              if (homeController.isFluterTypeWork.value ==
-                                  false) {
-                                homeController.countTheFluterWorks.value =
-                                    homeController.countTheFluterWorks.value +
-                                        1;
-                              } else {}
-                              homeController.theTypeWork.value = snapshot
-                                  .data['data'][i]['name_type_work']
-                                  .toString();
-                              homeController.isFluterTypeWork.value = true;
-
-                              homeController.showtheTypesOfWorks.value = false;
-                              homeController.idOfTypeWork.value = int.parse(
-                                  snapshot.data['data'][i]['id_type_work']
-                                      .toString());
+                              homeController.theTypeOfBus.value =
+                                  snapshot.data['data'][i]
+                                      ['name_type_id_type_business'];
+                              homeController.showTheTypesComList.value = false;
                             },
                             child: Container(
                               alignment: Alignment.centerRight,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../controllers/home_controller.dart';
 import '../../core/constant/app_text_styles.dart';
@@ -41,7 +42,10 @@ class ErrorAdd extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () async {
+                        Uri mail = Uri.parse("https://jalia.org/");
+                        await launchUrl(mail);
+                      },
                       child: ContainerCustom(
                           widthContainer: 200,
                           heigthContainer: 40,

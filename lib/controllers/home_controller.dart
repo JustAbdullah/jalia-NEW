@@ -84,14 +84,18 @@ class HomeController extends GetxController {
       if (countTheFluterWorks.value == 1) {
         if (isFluterPlaceWork.value == true) {
           makeFluters.value = 1;
+
           getAllDataWorkSearching();
           await Future.delayed(const Duration(milliseconds: 30), () async {
+            cleanSearchWhenFluterTypesPlaceWork();
             isFluterNow.value = true;
           });
         } else if (isFluterTypeWork.value == true) {
           makeFluters.value = 2;
           getAllDataWorkSearching();
+
           await Future.delayed(const Duration(milliseconds: 30), () async {
+            cleanSearchWhenFluterTypesPlaceWork();
             isFluterNow.value = true;
           });
         }
@@ -99,6 +103,7 @@ class HomeController extends GetxController {
         makeFluters.value = 3;
         getAllDataWorkSearching();
         await Future.delayed(const Duration(milliseconds: 30), () async {
+          cleanSearchWhenFluterTypesPlaceWork();
           isFluterNow.value = true;
         });
       }
@@ -161,6 +166,123 @@ class HomeController extends GetxController {
       return response;
     } else if (makeFluters.value == 3) {
       var response = await getWorksFromDatabaseFluterAll();
+      return response;
+    }
+  }
+
+  ////////Fluterr Comp////////
+
+  ////////////////////////Fluters Works////////////
+  RxBool showtheTypesOfComp = false.obs;
+  RxBool showthePlacescomp = false.obs;
+
+  RxInt countTheFluterComp = 0.obs;
+  RxBool isFluterPlaceComp = false.obs;
+  RxBool isFluterTypeComp = false.obs;
+  RxString theTypeComp = "من غير تصنيف".obs;
+  RxString thePlaceComp = "Adalar".obs;
+  RxInt idOfPlaceComp = 0.obs;
+  RxInt idOfTypeComp = 0.obs;
+
+  RxBool noDataComp = false.obs;
+
+  RxInt makeFlutersComp = 0.obs;
+  RxBool isFluterNowComp = false.obs;
+  makeFluterComp() async {
+    if (isFluterNowComp.value == true) {
+      makeFlutersComp.value = 0;
+      isFluterNowComp.value = false;
+      countTheFluterComp.value = 0;
+      isFluterPlaceComp.value = false;
+      isFluterTypeComp.value = false;
+      theTypeComp.value = "من غير تصنيف";
+      thePlaceComp.value = "Adalar";
+      idOfPlaceComp.value = 0;
+      idOfTypeComp.value = 0;
+    } else {
+      if (countTheFluterComp.value == 1) {
+        if (isFluterPlaceComp.value == true) {
+          makeFlutersComp.value = 1;
+          getAllDataWorkSearching();
+          await Future.delayed(const Duration(milliseconds: 30), () async {
+            cleanSearchWhenFluterTypesPlaceCompeny();
+            isFluterNowComp.value = true;
+          });
+        } else if (isFluterTypeComp.value == true) {
+          makeFlutersComp.value = 2;
+          getAllDataWorkSearching();
+          await Future.delayed(const Duration(milliseconds: 30), () async {
+            cleanSearchWhenFluterTypesPlaceCompeny();
+            isFluterNowComp.value = true;
+          });
+        }
+      } else if (countTheFluterComp.value == 2) {
+        makeFlutersComp.value = 3;
+        getAllDataWorkSearching();
+        await Future.delayed(const Duration(milliseconds: 30), () async {
+          cleanSearchWhenFluterTypesPlaceCompeny();
+          isFluterNowComp.value = true;
+        });
+      }
+    }
+  }
+
+//////////////////////Get Data From DataBase..............................................//////////////////////////////
+
+////////Fluterr////////
+
+  getWorksFromDatabaseFluterPalceComp() async {
+    var response = await crud.postRequest(AppLinksApi.getCompeny_fluterPlace,
+        {"business_directory_place": idOfPlaceComp.value.toString()});
+
+    if (response['status'] == "success") {
+      noDataComp.value = false;
+    } else {
+      noDataComp.value = true;
+    }
+    return response;
+  }
+
+  getWorksFromDatabaseFluterTypeComp() async {
+    var response = await crud.postRequest(AppLinksApi.getCompeny_fluterTypes,
+        {"business_directory_type": idOfTypeComp.value.toString()});
+
+    if (response['status'] == "success") {
+      noData.value = false;
+    } else {
+      noData.value = true;
+    }
+    return response;
+  }
+
+  getCompFromDatabaseFluterAll() async {
+    var response = await crud.postRequest(
+      AppLinksApi.getCompeny_fluter,
+      {
+        "business_directory_place": idOfPlaceComp.value.toString(),
+        "business_directory_type": idOfTypeComp.value.toString()
+      },
+    );
+
+    if (response['status'] == "success") {
+      noData.value = false;
+    } else {
+      noData.value = true;
+    }
+    return response;
+  }
+
+  getAllDataCompSearching() async {
+    if (makeFlutersComp.value == 1) {
+      var response = await getWorksFromDatabaseFluterPalceComp();
+
+      return response;
+    } else if (makeFlutersComp.value == 2) {
+      var response = await getWorksFromDatabaseFluterTypeComp();
+
+      return response;
+    } else if (makeFlutersComp.value == 3) {
+      var response = await getCompFromDatabaseFluterAll();
       return response;
     }
   }
@@ -461,7 +583,7 @@ class HomeController extends GetxController {
   }
 
 /////////DisplayData////////////////////
-  RxString displayUserName = "".obs;
+  RxString displayUserName = "ليس لديك حساب".obs;
   RxString displayUserId = "".obs;
   RxInt displayIsHavaAccount = 0.obs;
   RxString displayUserPhone = "".obs;
@@ -805,5 +927,185 @@ class HomeController extends GetxController {
     isLoadingAddCv.value = false;
 
     Get.to(QuestionsScreen());
+  }
+
+  ////////////////////////The Search With Name////////////////////////
+////////////Works Search Name......../////////
+
+  String theNameSearchingWork = "";
+  TextEditingController TheNameSearchWork = TextEditingController();
+  RxBool isSearchingNameWork = false.obs;
+  RxBool isClickToSreacNow = false.obs;
+  RxBool showTheResultWorkNameSearch = false.obs;
+  RxBool IsHaveDataWorkNameSearch = false.obs;
+
+  SearchNameWork(String name) async {
+    var response = await crud.postRequest(AppLinksApi.searhcNameWork, {
+      'search': name.toString(),
+    });
+///////
+    if (response['status'] == "success") {
+      IsHaveDataWorkNameSearch.value = true;
+    } else {
+      IsHaveDataWorkNameSearch.value = false;
+    }
+
+    return response;
+  }
+
+  searchNowNameWork() async {
+    if (isSearchingNameWork.value == true) {
+      if (isClickToSreacNow.value == true) {
+        theNameSearchingWork = "";
+        TheNameSearchWork.clear();
+        isSearchingNameWork.value = false;
+        isClickToSreacNow.value = false;
+        showTheResultWorkNameSearch.value = false;
+        IsHaveDataWorkNameSearch.value = false;
+      } else {
+        showTheResultWorkNameSearch.value = true;
+        isClickToSreacNow.value = true;
+      }
+    } else {}
+  }
+
+  cleanSearchWhenFluterTypesPlaceWork() {
+    theNameSearchingWork = "";
+    TheNameSearchWork.clear();
+    isSearchingNameWork.value = false;
+    isClickToSreacNow.value = false;
+    showTheResultWorkNameSearch.value = false;
+    IsHaveDataWorkNameSearch.value = false;
+  }
+
+  ////////////Compeny Search Name......../////////
+
+  String theNameSearchingCompeny = "";
+  TextEditingController TheNameSearchCompeny = TextEditingController();
+  RxBool isSearchingNameCompeny = false.obs;
+  RxBool isClickToSreacNowCompeny = false.obs;
+  RxBool showTheResultCompenyNameSearch = false.obs;
+  RxBool IsHaveDataCompenyNameSearch = false.obs;
+
+  SearchNameCompeny(String name) async {
+    var response = await crud.postRequest(AppLinksApi.searhcNameCompeny, {
+      'search': name.toString(),
+    });
+///////
+    if (response['status'] == "success") {
+      IsHaveDataCompenyNameSearch.value = true;
+    } else {
+      IsHaveDataCompenyNameSearch.value = false;
+    }
+
+    return response;
+  }
+
+  searchNowNameCompeny() async {
+    if (isSearchingNameCompeny.value == true) {
+      if (isClickToSreacNowCompeny.value == true) {
+        theNameSearchingCompeny = "";
+        TheNameSearchCompeny.clear();
+        isSearchingNameCompeny.value = false;
+        isClickToSreacNowCompeny.value = false;
+        showTheResultCompenyNameSearch.value = false;
+        IsHaveDataCompenyNameSearch.value = false;
+      } else {
+        showTheResultCompenyNameSearch.value = true;
+        isClickToSreacNowCompeny.value = true;
+      }
+    } else {}
+  }
+
+  cleanSearchWhenFluterTypesPlaceCompeny() {
+    theNameSearchingCompeny = "";
+    TheNameSearchCompeny.clear();
+    isSearchingNameCompeny.value = false;
+    isClickToSreacNowCompeny.value = false;
+    showTheResultCompenyNameSearch.value = false;
+    IsHaveDataCompenyNameSearch.value = false;
+  }
+
+  ////////////Cv Search Name......../////////
+
+  String theNameSearchingCv = "";
+  TextEditingController TheNameSearchCv = TextEditingController();
+  RxBool isSearchingNameCv = false.obs;
+  RxBool isClickToSreacNowCv = false.obs;
+  RxBool showTheResultCvNameSearch = false.obs;
+  RxBool IsHaveDataCvNameSearch = false.obs;
+
+  SearchNameCv(String name) async {
+    var response = await crud.postRequest(AppLinksApi.searhcNameCv, {
+      'search': name.toString(),
+    });
+///////
+    if (response['status'] == "success") {
+      IsHaveDataCvNameSearch.value = true;
+    } else {
+      IsHaveDataCvNameSearch.value = false;
+    }
+
+    return response;
+  }
+
+  searchNowNameCv() async {
+    if (isSearchingNameCv.value == true) {
+      if (isClickToSreacNowCv.value == true) {
+        theNameSearchingCv = "";
+        TheNameSearchCv.clear();
+        isSearchingNameCv.value = false;
+        isClickToSreacNowCv.value = false;
+        showTheResultCvNameSearch.value = false;
+        IsHaveDataCvNameSearch.value = false;
+      } else {
+        showTheResultCvNameSearch.value = true;
+        isClickToSreacNowCv.value = true;
+      }
+    } else {}
+  }
+
+  cleanSearchWhenFluterTypesPlaceCv() {
+    theNameSearchingCv = "";
+    TheNameSearchCv.clear();
+    isSearchingNameCv.value = false;
+    isClickToSreacNowCv.value = false;
+    showTheResultCvNameSearch.value = false;
+    IsHaveDataCvNameSearch.value = false;
+  }
+
+  //////////////////////The InfoAboutTheApp,,,,,,,,,,,,,,,,,,////////////
+  RxBool infoOne = true.obs;
+  RxBool infoTwo = false.obs;
+  RxBool infoThree = false.obs;
+  RxBool infoFour = false.obs;
+  RxBool infoFive = false.obs;
+
+  showInfoTwo() {
+    infoOne.value = false;
+    infoTwo.value = true;
+  }
+
+  showInfoThree() {
+    infoTwo.value = false;
+    infoThree.value = true;
+  }
+
+  showInfoFour() {
+    infoThree.value = false;
+    infoFour.value = true;
+  }
+
+  showInfoFive() {
+    infoFour.value = false;
+    infoFive.value = true;
+  }
+
+  endTheInfo() {
+    infoOne.value = false;
+    infoTwo.value = false;
+    infoThree.value = false;
+    infoFour.value = false;
+    infoFive.value = false;
   }
 }

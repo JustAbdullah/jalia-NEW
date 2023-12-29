@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:jalia/controllers/home_controller.dart';
 import 'package:jalia/core/constant/app_text_styles.dart';
 import 'package:jalia/customWidgets/custom_text.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../core/constant/appcolors.dart';
 import '../../customWidgets/custom_container.dart';
@@ -244,7 +245,10 @@ class ProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          Uri mail = Uri.parse("https://jalia.org/");
+                          await launchUrl(mail);
+                        },
                         child: ContainerCustom(
                             widthContainer: 200,
                             heigthContainer: 40,

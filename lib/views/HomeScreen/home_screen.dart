@@ -15,6 +15,7 @@ import '../../core/constant/appcolors.dart';
 import '../ActivitiesScreen/activities_screen.dart';
 import '../BusinessScreen/business_screen.dart';
 import '../CommuncationScreen/communication_screen.dart';
+import '../FirstINfoScreen/first_info_screen.dart';
 import '../NotificationsScreen/notification_screen.dart';
 import '../WorksScreen/works_screen.dart';
 
@@ -61,14 +62,18 @@ class HomeScreen extends StatelessWidget {
                                           child: TextCustom(
                                             theText: controller
                                                 .displayUserName.value,
-                                            fontSizeWidth: 20,
+                                            fontSizeWidth: 14,
                                             fontFamily: AppTextStyles.Almarai,
                                             fontColor: controller
-                                                        .displayUserEligibilityAdd
+                                                        .displayIsHavaAccount
                                                         .value ==
-                                                    "2"
-                                                ? AppColors.yellowColor
-                                                : AppColors.theAppColorBlue,
+                                                    0
+                                                ? AppColors.redColor
+                                                : controller.displayUserEligibilityAdd
+                                                            .value ==
+                                                        "2"
+                                                    ? AppColors.yellowColor
+                                                    : AppColors.theAppColorBlue,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
@@ -722,79 +727,84 @@ class HomeScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     child: ContainerCustom(
                       widthContainer: 300,
-                      heigthContainer: 190,
+                      heigthContainer: 195,
                       theBorderRadius: 10,
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 15.w, vertical: 20.h),
-                        child: Column(children: [
-                          TextCustom(
-                              theText: "تنبية",
-                              fontSizeWidth: 20,
-                              fontFamily: AppTextStyles.Almarai,
-                              fontColor: AppColors.redColor),
-                          SizedBox(
-                            height: 4.h,
-                          ),
-                          TextCustom(
-                              Theheight: 1.5,
-                              theText:
-                                  "عزيزي المستخدم لم تقم بستجيل دخولك,,قم بتسجيل دخولك اولاً وفي حال لم تمتلك حساب قم بإنشاء حساب جديد الان",
-                              fontSizeWidth: 17,
-                              fontFamily: AppTextStyles.Almarai,
-                              fontColor: AppColors.balckColorTypeThree),
-                          SizedBox(
-                            height: 25.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  Get.to(SignUp());
-                                  controller.isUserNotHaveAccount.value = false;
-                                },
-                                child: ContainerCustom(
-                                  widthContainer: 120.w,
-                                  heigthContainer: 30,
-                                  colorContainer: AppColors.yellowColor,
-                                  child: Center(
-                                    child: TextCustom(
-                                        theText: "صفحة التسجيل",
-                                        fontSizeWidth: 17,
-                                        fontFamily: AppTextStyles.Almarai,
-                                        fontColor:
-                                            AppColors.balckColorTypeThree),
+                        child: SingleChildScrollView(
+                          child: Column(children: [
+                            TextCustom(
+                                theText: "تنبية",
+                                fontSizeWidth: 20,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontColor: AppColors.redColor),
+                            SizedBox(
+                              height: 4.h,
+                            ),
+                            TextCustom(
+                                Theheight: 1.5,
+                                theText:
+                                    "عزيزي المستخدم لم تقم بستجيل دخولك,,قم بتسجيل دخولك اولاً وفي حال لم تمتلك حساب قم بإنشاء حساب جديد الان",
+                                fontSizeWidth: 15,
+                                fontFamily: AppTextStyles.Almarai,
+                                fontColor: AppColors.balckColorTypeThree),
+                            SizedBox(
+                              height: 25.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    Get.to(SignUp());
+                                    controller.isUserNotHaveAccount.value =
+                                        false;
+                                  },
+                                  child: ContainerCustom(
+                                    widthContainer: 120.w,
+                                    heigthContainer: 30,
+                                    colorContainer: AppColors.yellowColor,
+                                    child: Center(
+                                      child: TextCustom(
+                                          theText: "صفحة التسجيل",
+                                          fontSizeWidth: 17,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          fontColor:
+                                              AppColors.balckColorTypeThree),
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 20.w,
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  controller.isUserNotHaveAccount.value = false;
-                                },
-                                child: ContainerCustom(
-                                  widthContainer: 100.w,
-                                  heigthContainer: 30,
-                                  colorContainer: AppColors.redColor,
-                                  child: Center(
-                                    child: TextCustom(
-                                        theText: "الإخفاء الان",
-                                        fontSizeWidth: 17,
-                                        fontFamily: AppTextStyles.Almarai,
-                                        fontColor: AppColors.whiteColor),
-                                  ),
+                                SizedBox(
+                                  width: 20.w,
                                 ),
-                              )
-                            ],
-                          ),
-                        ]),
+                                InkWell(
+                                  onTap: () {
+                                    controller.isUserNotHaveAccount.value =
+                                        false;
+                                  },
+                                  child: ContainerCustom(
+                                    widthContainer: 100.w,
+                                    heigthContainer: 30,
+                                    colorContainer: AppColors.redColor,
+                                    child: Center(
+                                      child: TextCustom(
+                                          theText: "الإخفاء الان",
+                                          fontSizeWidth: 17,
+                                          fontFamily: AppTextStyles.Almarai,
+                                          fontColor: AppColors.whiteColor),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ]),
+                        ),
                       ),
                     ),
-                  )))
+                  ))),
+          FirstInfo()
         ]),
       ),
     );

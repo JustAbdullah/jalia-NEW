@@ -27,4 +27,16 @@ class AppLinksApi {
   static const addQuestion = "${path}/add_question.php";
   static const getGoldUsers = "${path}/get_gold_users.php";
   static const getUsersCv = "${path}/get_users_cv.php";
+
+  //////fluter getCompeny////////////
+
+  static const getCompeny_fluterPlace =
+      "${path}/get_compeny_fluter_with_place.php";
+  static const getCompeny_fluterTypes =
+      "${path}/get_compeny_fluter_with_type.php";
+  static const getCompeny_fluter = "${path}/get_compeny_fluter.php";
+  ////////////////////Search///////////////////////////////
+  static const searhcNameCompeny = "${path}/search_in_compeny.php";
+  static const searhcNameWork = "${path}/search_in_work.php";
+  static const searhcNameCv = "${path}/search_in_cv.php";
 }

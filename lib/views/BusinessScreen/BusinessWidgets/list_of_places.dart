@@ -40,25 +40,29 @@ class ListOfPlaces extends StatelessWidget {
                               homeController.placeCom = snapshot.data['data'][i]
                                       ['id_place']
                                   .toString();
-                              if (homeController.isFluterPlaceWork.value ==
+                              if (homeController.isFluterPlaceComp.value ==
                                   false) {
-                                homeController.countTheFluterWorks.value =
-                                    homeController.countTheFluterWorks.value +
-                                        1;
+                                homeController.countTheFluterComp.value =
+                                    homeController.countTheFluterComp.value + 1;
                               } else {}
+                              homeController.thePlaceComp.value = snapshot
+                                  .data['data'][i]['name_id_place']
+                                  .toString();
+                              homeController.isFluterPlaceComp.value = true;
+                              homeController.idOfPlaceComp.value = int.parse(
+                                  snapshot.data['data'][i]['id_place']
+                                      .toString());
 
                               homeController.placeCom = snapshot.data['data'][i]
                                       ['id_place']
                                   .toString();
-                              homeController.thePlaceWork.value = snapshot
+
+                              homeController.thePlaceList.value = snapshot
                                   .data['data'][i]['name_id_place']
                                   .toString();
-                              homeController.isFluterPlaceWork.value = true;
-                              homeController.idOfPlaceWork.value = int.parse(
-                                  snapshot.data['data'][i]['id_place']
-                                      .toString());
-
                               homeController.showthePlaces.value = false;
+
+                              homeController.showThePlacesList.value = false;
                             },
                             child: Container(
                               alignment: Alignment.centerRight,

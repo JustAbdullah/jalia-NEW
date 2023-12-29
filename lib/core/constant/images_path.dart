@@ -29,4 +29,6 @@ class ImagesPath {
   static const String account = "$RootPath/icons8-account-96.png";
   static const String crown = "$RootPath/icons8-crown-100.png";
   static const String person = "$RootPath/person.json";
+  static const String alert = "$RootPath/alert.json";
+  static const String messages = "$RootPath/messages.json";
 }

@@ -96,7 +96,7 @@ class ListOfQoestions extends StatelessWidget {
                                               theText: snapshot.data['data'][i]
                                                       ['user_name']
                                                   .toString(),
-                                              fontSizeWidth: 16,
+                                              fontSizeWidth: 13,
                                               fontFamily: AppTextStyles.Almarai,
                                               fontColor: snapshot.data['data']
                                                               [i]

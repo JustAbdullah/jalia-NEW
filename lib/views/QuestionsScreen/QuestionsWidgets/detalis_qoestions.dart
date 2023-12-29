@@ -535,12 +535,12 @@ class QoestionsDetails extends StatelessWidget {
                       child: InkWell(
                         onTap: () {
                           if (homeController.displayIsHavaAccount.value == 0) {
-                            homeController.isNotHaveAnyComment.value = true;
+                            homeController.isUserNotHaveAccount.value = true;
                           } else {
                             if (homeController.Thecomment == "a") {
                               homeController.isNotHaveAnyComment.value = true;
                             } else {
-                              homeController.isNotHaveDataintoCv.value = false;
+                              homeController.isNotHaveAnyComment.value = false;
                               homeController.AddComments(
                                   homeController.Thecomment.toString(),
                                   homeController
@@ -711,22 +711,6 @@ class QoestionsDetails extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ))),
-          GetX<HomeController>(
-              builder: (controller) => Visibility(
-                  visible: controller.isUserNotHaveAccount.value,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black38,
-                  ))),
-          GetX<HomeController>(
-              builder: (controller) => Visibility(
-                  visible: controller.isUserNotHaveAccount.value,
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black38,
                   ))),
           GetX<HomeController>(
               builder: (controller) => Visibility(
