@@ -460,13 +460,6 @@ class FirstInfo extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
                     color: Colors.black12))),
-        GetX<HomeController>(
-            builder: (controller) => Visibility(
-                visible: controller.infoTwo.value,
-                child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black12))),
 
         GetX<HomeController>(
             builder: (controller) => Visibility(
@@ -849,13 +842,7 @@ class FirstInfo extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
                     color: Colors.black12))),
-        GetX<HomeController>(
-            builder: (controller) => Visibility(
-                visible: controller.infoThree.value,
-                child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: Colors.black12))),
+
         GetX<HomeController>(
             builder: (controller) => Visibility(
                 visible: controller.infoThree.value,
@@ -874,7 +861,7 @@ class FirstInfo extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 40.w),
                             child: Text(
-                              "هل ترى أيقونة أسال الجالية؟ انضم الان لمجتمع الجالية الضخم لتجد مختلف الأجابات التى تحتاجها ",
+                              "هل ترى أيقونة أسال الجالية؟ انضم الان لمجتمع الجالية الضخم  وتفاعل وأسئل وجد مختلف الأجابات التى تحتاجها ",
                               style: TextStyle(
                                   height: 1.5.h,
                                   color: AppColors.whiteColor,
@@ -954,6 +941,13 @@ class FirstInfo extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
                     color: Colors.black12))),
+        GetX<HomeController>(
+            builder: (controller) => Visibility(
+                visible: controller.infoFour.value,
+                child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.black26))),
         GetX<HomeController>(
             builder: (controller) => Visibility(
                 visible: controller.infoFour.value,

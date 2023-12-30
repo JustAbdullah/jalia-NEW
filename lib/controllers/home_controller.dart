@@ -397,6 +397,10 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
 
+    if (appServices.sharedPreferences.containsKey('isShowInfo')) {
+      infoOne.value = false;
+    }
+
     if (appServices.sharedPreferences.containsKey('isHaveAccount')) {
       displayIsHavaAccount.value =
           appServices.sharedPreferences.getInt('isHaveAccount') as int;
@@ -1107,5 +1111,6 @@ class HomeController extends GetxController {
     infoThree.value = false;
     infoFour.value = false;
     infoFive.value = false;
+    appServices.sharedPreferences.setInt('isShowInfo', 1);
   }
 }

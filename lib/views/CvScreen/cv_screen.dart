@@ -5,7 +5,6 @@ import 'package:jalia/controllers/home_controller.dart';
 import 'package:jalia/customWidgets/custom_padding.dart';
 
 import '../../core/constant/appcolors.dart';
-import '../../customWidgets/custome_textfiled.dart';
 import '../../customWidgets/search_text_filed.dart';
 import 'CvWidget/list_of_cv.dart';
 import 'CvWidget/list_of_cv_searching_name.dart';

@@ -184,48 +184,15 @@ class Login extends StatelessWidget {
                     colorContainer: AppColors.theAppColorBlue,
                     widthContainer: 200,
                     heigthContainer: 40,
-                    child: TextCustom(
-                        Theheight: 2.h,
-                        theText: "تسجيل الدخول الان",
-                        fontSizeWidth: 16,
-                        fontFamily: AppTextStyles.Almarai,
-                        fontColor: AppColors.whiteColor),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 45.w),
-                    child: Text(
-                      "نوصيك دائمًا بالإطلاع ومعرفة شروط واحكام منصة الجلالية الأسطنبولية لتجنب اي اشكاليات قد تحدث",
-                      style: TextStyle(
-                          height: 1.5.h,
-                          fontSize: 14.5.sp,
-                          fontFamily: AppTextStyles.Almarai,
-                          color: AppColors.redColor),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 45.w),
-                    child: Text(
-                      "قراءة الاحكام والشروط",
-                      style: TextStyle(
-                          height: 1.5.h,
-                          fontSize: 14.5.sp,
-                          fontFamily: AppTextStyles.Almarai,
-                          fontWeight: FontWeight.bold,
-                          color: AppColors.yellowColor),
-                      textAlign: TextAlign.center,
+                    child: Center(
+                      child: Text(
+                        "تسجيل الدخول الان",
+                        style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: AppTextStyles.Almarai,
+                            color: AppColors.whiteColor),
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
