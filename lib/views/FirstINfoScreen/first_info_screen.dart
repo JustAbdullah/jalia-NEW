@@ -55,18 +55,22 @@ class FirstInfo extends StatelessWidget {
                           Lottie.asset(ImagesPath.alert,
                               width: 150.w, repeat: false),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 40.w),
-                            child: Text(
-                              "مرحبًا بك عزيزي المستخدم,,إنها زيارتك الأولى ولذلك سنقوم بإظهار الدليل التعريفي,,فضًلا شاهد بعناية...",
-                              style: TextStyle(
-                                  height: 1.5.h,
-                                  color: AppColors.whiteColor,
-                                  fontFamily: AppTextStyles.Almarai,
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                              padding: EdgeInsets.symmetric(horizontal: 40.w),
+                              child: InkWell(
+                                onTap: () {
+                                  controller.showInfoTwo();
+                                },
+                                child: Text(
+                                  "مرحبًا بك عزيزي المستخدم,,إنها زيارتك الأولى ولذلك سنقوم بإظهار الدليل التعريفي,,فضًلا شاهد بعناية...",
+                                  style: TextStyle(
+                                      height: 1.5.h,
+                                      color: AppColors.whiteColor,
+                                      fontFamily: AppTextStyles.Almarai,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )),
                           SizedBox(
                             height: 40.h,
                           ),
@@ -90,16 +94,20 @@ class FirstInfo extends StatelessWidget {
                           SizedBox(
                             height: 3.h,
                           ),
-                          Text(
-                            "1/5",
-                            style: TextStyle(
-                                height: 1.5.h,
-                                color: AppColors.yellowColor,
-                                fontFamily: AppTextStyles.Almarai,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
+                          InkWell(
+                              onTap: () {
+                                controller.showInfoTwo();
+                              },
+                              child: Text(
+                                "1/5",
+                                style: TextStyle(
+                                    height: 1.5.h,
+                                    color: AppColors.yellowColor,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              )),
                         ],
                       )),
                     ),
@@ -476,18 +484,22 @@ class FirstInfo extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 40.w),
-                            child: Text(
-                              "هل تشاهد هذة الخيارات؟ إننا نوفر لك عزيزي المستخدم سبع  نوافذ أساسية تستطيع تصفحها بكل سهولة لمشاهدة تفاصيلها ونوافذها الداخلية",
-                              style: TextStyle(
-                                  height: 1.5.h,
-                                  color: AppColors.whiteColor,
-                                  fontFamily: AppTextStyles.Almarai,
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
+                              padding: EdgeInsets.symmetric(horizontal: 40.w),
+                              child: InkWell(
+                                onTap: () {
+                                  controller.showInfoThree();
+                                },
+                                child: Text(
+                                  "هل تشاهد هذة الخيارات؟ إننا نوفر لك عزيزي المستخدم سبع  نوافذ أساسية تستطيع تصفحها بكل سهولة لمشاهدة تفاصيلها ونوافذها الداخلية",
+                                  style: TextStyle(
+                                      height: 1.5.h,
+                                      color: AppColors.whiteColor,
+                                      fontFamily: AppTextStyles.Almarai,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                ),
+                              )),
                           SizedBox(
                             height: 40.h,
                           ),
@@ -511,16 +523,20 @@ class FirstInfo extends StatelessWidget {
                           SizedBox(
                             height: 3.h,
                           ),
-                          Text(
-                            "2/5",
-                            style: TextStyle(
-                                height: 1.5.h,
-                                color: AppColors.yellowColor,
-                                fontFamily: AppTextStyles.Almarai,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
+                          InkWell(
+                              onTap: () {
+                                controller.showInfoThree();
+                              },
+                              child: Text(
+                                "2/5",
+                                style: TextStyle(
+                                    height: 1.5.h,
+                                    color: AppColors.yellowColor,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              )),
                         ],
                       ),
                     )),
@@ -860,16 +876,20 @@ class FirstInfo extends StatelessWidget {
                           Lottie.asset(ImagesPath.messages, width: 100.w),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 40.w),
-                            child: Text(
-                              "هل ترى أيقونة أسال الجالية؟ انضم الان لمجتمع الجالية الضخم  وتفاعل وأسئل وجد مختلف الأجابات التى تحتاجها ",
-                              style: TextStyle(
-                                  height: 1.5.h,
-                                  color: AppColors.whiteColor,
-                                  fontFamily: AppTextStyles.Almarai,
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
+                            child: InkWell(
+                                onTap: () {
+                                  controller.showInfoFour();
+                                },
+                                child: Text(
+                                  "هل ترى أيقونة أسال الجالية؟ انضم الان لمجتمع الجالية الضخم  وتفاعل وأسئل وجد مختلف الأجابات التى تحتاجها ",
+                                  style: TextStyle(
+                                      height: 1.5.h,
+                                      color: AppColors.whiteColor,
+                                      fontFamily: AppTextStyles.Almarai,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.center,
+                                )),
                           ),
                           SizedBox(
                             height: 40.h,
@@ -894,16 +914,20 @@ class FirstInfo extends StatelessWidget {
                           SizedBox(
                             height: 3.h,
                           ),
-                          Text(
-                            "3/5",
-                            style: TextStyle(
-                                height: 1.5.h,
-                                color: AppColors.yellowColor,
-                                fontFamily: AppTextStyles.Almarai,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
+                          InkWell(
+                              onTap: () {
+                                controller.showInfoFour();
+                              },
+                              child: Text(
+                                "3/5",
+                                style: TextStyle(
+                                    height: 1.5.h,
+                                    color: AppColors.yellowColor,
+                                    fontFamily: AppTextStyles.Almarai,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              )),
                         ],
                       ),
                     )),
@@ -1133,15 +1157,20 @@ class FirstInfo extends StatelessWidget {
                                     Padding(
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 40.w),
-                                      child: Text(
-                                        "عزيزي المستخدم.. هل ترى نوافذ الإضافة؟ ,يمكنك التمتع بهذة الصلاحيات عند تسجيلك وحصولك على العضوية",
-                                        style: TextStyle(
-                                            height: 1.5.h,
-                                            color: AppColors.whiteColor,
-                                            fontFamily: AppTextStyles.Almarai,
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.bold),
-                                        textAlign: TextAlign.center,
+                                      child: InkWell(
+                                        onTap: () {
+                                          controller.showInfoFive();
+                                        },
+                                        child: Text(
+                                          "عزيزي المستخدم.. هل ترى نوافذ الإضافة؟ ,يمكنك التمتع بهذة الصلاحيات عند تسجيلك وحصولك على العضوية",
+                                          style: TextStyle(
+                                              height: 1.5.h,
+                                              color: AppColors.whiteColor,
+                                              fontFamily: AppTextStyles.Almarai,
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
@@ -1168,16 +1197,20 @@ class FirstInfo extends StatelessWidget {
                                     SizedBox(
                                       height: 3.h,
                                     ),
-                                    Text(
-                                      "4/5",
-                                      style: TextStyle(
-                                          height: 1.5.h,
-                                          color: AppColors.yellowColor,
-                                          fontFamily: AppTextStyles.Almarai,
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.bold),
-                                      textAlign: TextAlign.center,
-                                    ),
+                                    InkWell(
+                                        onTap: () {
+                                          controller.showInfoFive();
+                                        },
+                                        child: Text(
+                                          "4/5",
+                                          style: TextStyle(
+                                              height: 1.5.h,
+                                              color: AppColors.yellowColor,
+                                              fontFamily: AppTextStyles.Almarai,
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center,
+                                        )),
                                   ],
                                 ))))))),
 
@@ -1293,19 +1326,24 @@ class FirstInfo extends StatelessWidget {
                                       height: 10.h,
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 40.w),
-                                      child: Text(
-                                        "نُشكر صبرك وحسن الإنصات ونرجو لك تجربة ممتعة ومفيدة,,إدارة الجالية الإسطنبولية",
-                                        style: TextStyle(
-                                            height: 1.5.h,
-                                            color: AppColors.yellowColor,
-                                            fontFamily: AppTextStyles.Almarai,
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.bold),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 40.w),
+                                        child: InkWell(
+                                          onTap: () {
+                                            controller.endTheInfo();
+                                          },
+                                          child: Text(
+                                            "نُشكر صبرك وحسن الإنصات ونرجو لك تجربة ممتعة ومفيدة,,إدارة الجالية الإسطنبولية",
+                                            style: TextStyle(
+                                                height: 1.5.h,
+                                                color: AppColors.yellowColor,
+                                                fontFamily:
+                                                    AppTextStyles.Almarai,
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.bold),
+                                            textAlign: TextAlign.center,
+                                          ),
+                                        )),
                                     SizedBox(
                                       height: 70.h,
                                     ),
@@ -1330,16 +1368,20 @@ class FirstInfo extends StatelessWidget {
                                     SizedBox(
                                       height: 3.h,
                                     ),
-                                    Text(
-                                      "5/5",
-                                      style: TextStyle(
-                                          height: 1.5.h,
-                                          color: AppColors.yellowColor,
-                                          fontFamily: AppTextStyles.Almarai,
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.bold),
-                                      textAlign: TextAlign.center,
-                                    ),
+                                    InkWell(
+                                        onTap: () {
+                                          controller.endTheInfo();
+                                        },
+                                        child: Text(
+                                          "5/5",
+                                          style: TextStyle(
+                                              height: 1.5.h,
+                                              color: AppColors.yellowColor,
+                                              fontFamily: AppTextStyles.Almarai,
+                                              fontSize: 16.sp,
+                                              fontWeight: FontWeight.bold),
+                                          textAlign: TextAlign.center,
+                                        )),
                                   ],
                                 ))))))),
       ],

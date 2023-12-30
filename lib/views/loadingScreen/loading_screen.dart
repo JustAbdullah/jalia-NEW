@@ -28,6 +28,9 @@ class LoadingScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(
+                    height: 70.h,
+                  ),
                   Image.asset(
                     ImagesPath.logo,
                     width: 209.w,
@@ -35,7 +38,7 @@ class LoadingScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   PaddingCustom(
-                      theTop: 120,
+                      theTop: 20,
                       child: Lottie.asset(ImagesPath.loading,
                           width: 109.w, height: 100.h)),
                   PaddingCustom(

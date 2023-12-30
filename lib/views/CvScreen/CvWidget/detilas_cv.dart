@@ -142,7 +142,7 @@ class DetalasCv extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 15.h,
                               ),
                               Align(
                                 alignment: Alignment.centerRight,
@@ -166,8 +166,8 @@ class DetalasCv extends StatelessWidget {
                                         urlTheImage: homeController
                                             .imageTheUSerCv
                                             .toString(),
-                                        width: 70.w,
-                                        height: 100.h,
+                                        width: 100.w,
+                                        height: 150.h,
                                         boxFit: BoxFit.cover),
                                   ],
                                 ),
@@ -191,14 +191,14 @@ class DetalasCv extends StatelessWidget {
                                       textAlign: TextAlign.right,
                                     ),
                                     SizedBox(
-                                      width: 25.w,
+                                      width: 5.w,
                                     ),
                                     Text(
                                       homeController.numberTheUserCv.toString(),
                                       style: TextStyle(
                                         height: 1.5.h,
                                         fontSize: 20.sp,
-                                        color: AppColors.balckColorTypeThree,
+                                        color: AppColors.yellowColor,
                                         fontFamily: AppTextStyles.Almarai,
                                         fontWeight: FontWeight.bold,
                                       ),
